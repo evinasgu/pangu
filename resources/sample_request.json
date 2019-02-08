@@ -1,0 +1,19 @@
+{
+    "company": "kigen",
+    "projectName": "test_project",
+    "description": "Project for testing purposes",
+    "templates": [
+	{
+	    "url": "folder1/folder2",
+	    "templateName": "pom.xml",
+	    "content": "foo"
+	},
+	{
+	    "url": "folder1/folder2/folder3",
+	    "templateName": "hola.java",
+	    "content": "bar"
+	}],
+    "responseFileExtension": "zip",
+    "serverLanguage": "Clojure",
+    "serverPort": "8080"
+}
