@@ -2,7 +2,7 @@
   :description "Code generator for different languages"
   :url "http://example.com/FIXME"
   :plugins [[lein-ring "0.12.2"]]
-  :ring {:handler generic-code-generator.core/http-handler, :open-browser false}
+  :ring {:handler generic-code-generator.http-handler/handler, :open-browser false}
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.9.0"]
