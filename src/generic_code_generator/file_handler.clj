@@ -37,4 +37,4 @@
   [hierarchi-representation]
   (if (empty? hierarchi-representation)
     (empty map)
-    nil)) ;TODO operation with no empty data
+    (map create-one-folder (build-folder-list hierarchi-representation))))
