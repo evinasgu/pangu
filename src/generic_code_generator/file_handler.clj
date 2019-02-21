@@ -25,3 +25,8 @@
   (if (empty? hierarchi-representation)
     (empty map)
     (map create-one-folder (build-folder-list hierarchi-representation))))
+
+(defn create-files
+  "This function create template files in their respective folders"
+  [file-representation]
+  )
