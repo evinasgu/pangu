@@ -3,20 +3,6 @@
 
 (def valid-path-regex #"^(/[^/ ]*)+/?$")
 
-(defn pangu-flatten
-  "pangu-flatten make a recursive flat operation over an iterable core structure"
-  [x]
-  (filter (complement sequential?)
-          (rest (tree-seq sequential? seq x))))
-
-(defn build-folder-list
-  "Given a folder hierarchi, this function build a list of folders
-  to be created in the file system"
-  [folder-hierarchi]
-  (let [folder-hierarchi-set (set folder-hierarchi)]
-    
-  ))
-
 (defn malformed-location?
   "Given a location, this function verifies if the location is malformed"
   [location]
