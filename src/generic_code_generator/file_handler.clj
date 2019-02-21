@@ -24,9 +24,12 @@
   [hierarchi-representation]
   (if (empty? hierarchi-representation)
     (empty map)
-    (map create-one-folder (build-folder-list hierarchi-representation))))
+    (map create-one-folder hierarchi-representation)))
 
-(defn create-files
+(defn create-file
   "This function create template files in their respective folders"
   [file-representation]
-  )
+  (let [filepath (str (get file-representation :url) "/" (get file-representation :templateName))
+        content (get file-representation :content)]
+    (spit filepath content)))
+
