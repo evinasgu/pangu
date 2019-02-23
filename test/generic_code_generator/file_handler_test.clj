@@ -5,6 +5,19 @@
 
 (def home-folder-location (System/getProperty "user.home"))
 
+(def test-file-content "<html><body>Hello World!</body></html>")
+
+(def test-template-name "pangu-test-file.html")
+
+(def test-file-location (str
+                         home-folder-location
+                         "/"
+                         test-template-name))
+
+(defn create-test-file [] (spit test-file-location test-file-content))
+
+(defn delete-test-file [] (clojure.java.io/delete-file test-file-location true))
+
 (deftest malformed-location?-test
   (testing "malformed-location? returns true when location is empty"
     (is (= (malformed-location? "") true)))
@@ -28,4 +41,16 @@
   (testing "create-folder-hierarchi throws ex-data when location is empty"
     (is (= (create-folder-hierarchi {}) (empty map)))))
 
-
+(deftest create-file-test
+  (testing "create-file function returns false when the file exists in the file system"
+    (create-test-file)
+    (is (= (create-file {:url home-folder-location
+                         :templateName test-template-name
+                         :content test-file-content})
+           nil)))
+  (testing "create file function returns true when the file is created succesfully in the filesystem"
+    (delete-test-file)
+    (is (= (create-file {:url home-folder-location
+                         :templateName test-template-name
+                         :content test-file-content})
+           nil))))
