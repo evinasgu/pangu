@@ -1,7 +1,10 @@
 {
     "company": "kigen",
     "projectName": "test_project",
+    "creationDate": "24/02/2019",
+    "author": "Cantinflas",
     "description": "Project for testing purposes",
+    "baseFolderLocation": "/home/enyert/templates",
     "templates": [
 	{
 	    "url": "folder1/folder2",

@@ -9,10 +9,9 @@
 
 (def test-template-name "pangu-test-file.html")
 
-(def test-file-location (str
-                         home-folder-location
-                         "/"
-                         test-template-name))
+(def test-file-location (str home-folder-location
+                             "/"
+                             test-template-name))
 
 (defn create-test-file [] (spit test-file-location test-file-content))
 
