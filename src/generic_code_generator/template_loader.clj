@@ -1,5 +1,6 @@
 (ns generic-code-generator.template-loader
-  :require [clojure.tools.logging :as log])
+  :require [[clojure.tools.logging :as log]
+            [struct.core :as st]])
 
 (use 'selmer.parser)
 

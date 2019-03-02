@@ -11,7 +11,8 @@
                  [ring/ring-core "1.6.3"]
                  [selmer "1.12.5"]
                  [cheshire "5.8.1"]
-                 [org.clojure/tools.logging "0.4.1"]]
+                 [org.clojure/tools.logging "0.4.1"]
+                 [funcool/struct "1.3.0"]]
   :profiles
   {:uberjar
    {:aot :all}
