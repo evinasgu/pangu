@@ -1,6 +1,6 @@
-(ns generic-code-generator.request-validator
-  :require [[clojure.tools.logging :as log]
-            [struct.core :as st]])
+(ns generic-code-generator.input-validator
+  (:require [clojure.tools.logging :as log]
+            [struct.core :as st]))
 
 (def +load-template-scheme+
   {:template-content [st/required st/string]
@@ -20,5 +20,5 @@
 
 (defn validate-load-template-input
   [input]
-  (validate-scheme input +load-template-scheme+))
+  (validate-scheme +load-template-scheme+ input))
 

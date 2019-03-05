@@ -1,12 +1,11 @@
 (ns generic-code-generator.template-loader
-  :require [[clojure.tools.logging :as log]
-            [struct.core :as st]])
+  (:require [clojure.tools.logging :as log]
+            [struct.core :as st]))
 
 (use 'selmer.parser)
 
 (defn load-template
-  "This function takes a file located in template-url and make the substitution
-  for the data presented in template-content argument"
+  "This function takes a file located in template-url and make the substitution for the data presented in template-content argument"
   [template-content template-url]
   (log/info (str "Loading the template: " template-url))
   (cond
@@ -18,8 +17,4 @@
                            (ex-info "template-url cannot be empty or nil"
                                     {:causes #{:empty-template-url}
                                      :actual-value {:value template-url}}))
-    :else (render-file template-url template-content)))
-
-(defn validate-template-syntax
-  "Validate the syntax of a given template. This is a feature that will be released for a future version"
-)                                        
+    :else (render-file template-url template-content)))             
