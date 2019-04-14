@@ -10,7 +10,3 @@
 (deftest load-template-test)
   ;(testing "load-template function load succesfully a valid template"
   ;  (is (= (load-template valid-test-input-template) expected-template-loaded;))))
-
-(deftest validate-template-test) ;TODO
-
-(deftest write-template-test) ;TODO
