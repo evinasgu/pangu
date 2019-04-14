@@ -1,7 +1,6 @@
 (ns generic-code-generator.template-loader
   (:require [clojure.tools.logging :as log]
             [struct.core :as st]))
-x
 (use 'selmer.parser)
 
 (defn load-template
