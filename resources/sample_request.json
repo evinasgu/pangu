@@ -1,22 +1,54 @@
+//templateSet data
 {
+    "id": "1234fafa212412lknas1324", //Auto-generated
     "company": "kigen",
-    "projectName": "test_project",
+    "userId": "sk98sdg89sgd",
+    "templateSetName": "test_template_set",
     "creationDate": "24/02/2019",
     "author": "Cantinflas",
     "description": "Project for testing purposes",
-    "baseFolderLocation": "/home/enyert/templates",
+    "baseTemplateLocation": "/home/enyert/templates",
     "templates": [
 	{
+	    "id": "asfsaf9678a6sf8",
 	    "url": "folder1/folder2",
 	    "templateName": "pom.xml",
-	    "content": "foo"
 	},
 	{
+	    "id": "asfsaf9678a6s76",
 	    "url": "folder1/folder2/folder3",
 	    "templateName": "hola.java",
-	    "content": "bar"
 	}],
     "responseFileExtension": "zip",
     "serverLanguage": "Clojure",
-    "serverPort": "8080"
+    "serverPort": "8080",
+    "programmingLanguage": "Java"
+}
+
+//project data
+{
+    "id": "an4oasljda423423das9", //Auto-generated
+    "template_info_id": "1234fafa212412lknas1324",
+    "projectInfo": {
+	"name": "test-project",
+	"description": "Test project",
+	"creationDate": "24/02/2019",
+	"createdById": "sk98sdg89sgd"
+    },
+    "contents": [
+	{
+	    "templateId": "asfsaf9678a6sf8",
+	    "data": {
+		"attribute1": "value1",
+		"attribute2": "value2"
+	    }
+	},
+	{
+	    "templateId": "asfsaf9678a6s76",
+	    "data": {
+		"attribute3": "value3",
+		"attribute4": "value4"
+	    }
+	}
+    ]
 }

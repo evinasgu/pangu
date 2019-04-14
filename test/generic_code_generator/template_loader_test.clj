@@ -8,9 +8,7 @@
 (def valid-template-content {:header_tag "This is a header example tag"
                        :paragraph_tag "This is a paragraph example tag"})
 
-
 (def valid-test-input-template "template TODO")
-
 
 (deftest load-template-test
   (testing "load-template throws an error when template-content is empty"
