@@ -12,7 +12,13 @@
 (def valid-test-input-template "template TODO")
 
 
-
-(deftest load-template-test)
-  ;(testing "load-template function load succesfully a valid template"
-  ;  (is (= (load-template valid-test-input-template) expected-template-loaded;))))
+(deftest load-template-test
+  (testing "load-template throws an error when template-content is empty"
+    (is (thrown-with-msg? clojure.lang.ExceptionInfo #"template-content cannot be empty or nil"
+                          (load-template {} "/this_doesnt_exist")))
+    (is (thrown-with-msg? clojure.lang.ExceptionInfo #"template-content cannot be empty or nil"
+                          (load-template nil "/this_doent_exist")))
+    (is (thrown-with-msg? clojure.lang.ExceptionInfo #"template-url cannot be empty or nil"
+                          (load-template {:key "value"} "")))
+    (is (thrown-with-msg? clojure.lang.ExceptionInfo #"template-url cannot be empty or nil"
+                          (load-template {:ket "value"} nil)))))
