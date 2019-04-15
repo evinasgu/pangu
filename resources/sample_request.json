@@ -1,4 +1,4 @@
-//templateSet data
+//templateSet data - This data have to be persisted
 {
     "id": "1234fafa212412lknas1324", //Auto-generated
     "company": "kigen",
@@ -25,9 +25,9 @@
     "programmingLanguage": "Java"
 }
 
-//project data
+//project data - Analyze if this data have to be persisted
 {
-    "id": "an4oasljda423423das9", //Auto-generated
+    "id": "an4oasljda423423das9", //Auto-generated... Thinking about it!!!
     "template_info_id": "1234fafa212412lknas1324",
     "projectInfo": {
 	"name": "test-project",
