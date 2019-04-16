@@ -30,11 +30,11 @@
 (defn build-connection-string
   [configuration-info]
   (format (configuration-info :mongo-connection-string)
-          (database-info :db-hostame)
-          (database-info :db-port)
-          (database-info :db-name)
           (database-info :db-username)
-          (database-info :db-password)))
+          (database-info :db-password)
+          (database-info :db-hostname)
+          (database-info :db-port)
+          (database-info :db-name)))
           
   
    
