@@ -12,13 +12,16 @@
                  [selmer "1.12.5"]
                  [cheshire "5.8.1"]
                  [org.clojure/tools.logging "0.4.1"]
-                 [funcool/struct "1.3.0"]]
+                 [funcool/struct "1.3.0"]
+                 [com.novemberain/monger "3.1.0"]]
   :profiles
   {:uberjar
    {:aot :all}
    :production
-   {:ring {:stacktraces? false, :autoreload false}}
+   {:ring {:stacktraces? false, :autoreload false}
+    :resource-paths ["resources/prod/config.edn"]}
    :dev
    {:dependencies [[ring/ring-mock "0.3.2"] [ring/ring-devel "1.7.1"]],
-    :ring {:stacktraces? true}}}
+    :ring {:stacktraces? true}
+    :resource-paths ["resources/dev/config.edn"]}}
   :repl-options {:init-ns generic-code-generator.core})

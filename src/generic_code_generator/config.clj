@@ -1,8 +1,9 @@
 (ns generic-code-generator.config
-  (:require [clojure.edn :as edn]))
+  (:require [clojure.edn :as edn]
+            [monger.core :as mg]))
 
 (def database-info
-  {:db-hostame (System/getenv "DATABASE_HOSTNAME")
+  {:db-hostname (System/getenv "DATABASE_HOSTNAME")
    :db-port (System/getenv "DATABASE_PORT")
    :db-name (System/getenv "DATABASE_NAME")
    :db-username (System/getenv "DATABASE_USERNAME")
@@ -14,20 +15,21 @@
   (edn/read-string (slurp filename)))
 
 (defn load-configuration
-  (let [common-config {:common-configuration (read-edn-file "../config/common.edn")}
+  []
+  (let [common-config {:common-configuration (read-edn-file "resources/common-config.edn")}
         environment (System/getenv "ENVIRONMENT")]
     (cond
       (= environment "DEV")
       {:common-configuration common-config
-       :configuration (read-edn-file "../config/develop.edn")}
+       :configuration (read-edn-file "resources/dev/config.edn")}
       (= environment "PROD")
       {:common-configutation common-config
-       :configuration (read-edn-file "../config/production.edn")}
+       :configuration (read-edn-file "resources/prod/config.edn")}
       :else (throw
              (ex-info "Please create the environment values before"
                       {:causes #{:missing-environment-variable}})))))
 
-(defn build-connection-string
+(defn build-mongo-connection-string
   [configuration-info]
   (format (configuration-info :mongo-connection-string)
           (database-info :db-username)
@@ -35,7 +37,8 @@
           (database-info :db-hostname)
           (database-info :db-port)
           (database-info :db-name)))
-          
-  
-   
-  
+
+(defn create-mongo-connection
+  [configuration-info]
+  (let [uri (build-mongo-connection-string configuration-info)]
+    (mg/connect-via-uri uri)))
