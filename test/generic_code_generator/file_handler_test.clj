@@ -3,7 +3,8 @@
             [clojure.java.io :as io]
             [generic-code-generator.file-handler :refer :all]))
 
-(def home-folder-location (System/getProperty "user.home"))
+
+(def home-folder-location (.getPath (io/resource "resources")))
 
 (def test-file-content "<html><body>Hello World!</body></html>")
 
@@ -16,6 +17,13 @@
 (defn create-test-file [] (spit test-file-location test-file-content))
 
 (defn delete-test-file [] (clojure.java.io/delete-file test-file-location true))
+
+(defn clean-test-fixture [f]
+  (delete-test-file)
+  (f)
+  (delete-test-file))
+
+(use-fixtures :once clean-test-fixture)
 
 (deftest malformed-location?-test
   (testing "malformed-location? returns true when location is empty"
@@ -48,7 +56,6 @@
                          :content test-file-content})
            nil)))
   (testing "create file function returns true when the file is created succesfully in the filesystem"
-    (delete-test-file)
     (is (= (create-file {:url home-folder-location
                          :templateName test-template-name
                          :content test-file-content})
