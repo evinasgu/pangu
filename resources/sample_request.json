@@ -9,19 +9,13 @@
       "url": "folder1/folder2",
       #This results in a folder with the following path $baseFolderLocation / folder1 / folder2 /
       "templateName": "pom.xml",
-      "content": "foo {{whatever}}",
-      "data": {
-        "whatever": "ok"
-      }
+      "content": "foo {{whatever}}"
     },
     {
       "url": "folder1/folder2/folder3",
       #This results in a folder with the following path $baseFolderLocation / folder1 / folder2 / folder3 /
       "templateName": "hola.java",
-      "content": "bar",
-      "data": {
-        "whatever": "ok"
-      }
+      "content": "bar {{more_stuff}}"
     }
   ],
   "responseFileExtension": "zip",
